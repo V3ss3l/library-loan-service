@@ -1,0 +1,14 @@
+spring:
+  server:
+    port: 8083
+  datasource:
+    url: jdbc:postgresql://localhost:5432/loans
+    username: postgres
+    password: pass
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    generate-ddl: true
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+    database: postgresql
