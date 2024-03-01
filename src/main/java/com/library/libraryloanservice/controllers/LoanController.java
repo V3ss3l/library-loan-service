@@ -63,11 +63,11 @@ public class LoanController {
     }
 
     @SneakyThrows
-    @DeleteMapping( path = "/{id}",
+    @PostMapping( path = "/{id}",
             produces = "application/json"
     )
-    public ResponseEntity<?> deleteLoan(@PathVariable Long id) {
-        service.delete(id);
-        return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+    public ResponseEntity<?> returnBook (@PathVariable Long id) {
+        service.makeReturn(id);
+        return new ResponseEntity<>(HttpStatus.OK);
     }
 }

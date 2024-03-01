@@ -41,4 +41,12 @@ public class LoanServiceImpl implements LoanService {
     public void delete(Long id) throws NotFoundException{
         repository.findById(id).ifPresent(result -> repository.deleteById(id));
     }
+
+    @Override
+    public void makeReturn(Long id) throws NotFoundException {
+        var loan = repository.findById(id)
+                .orElseThrow(() -> new NotFoundException("Loan by this |"+id+"| not found in database"));
+        loan.setReturned(true);
+        repository.saveAndFlush(loan);
+    }
 }
