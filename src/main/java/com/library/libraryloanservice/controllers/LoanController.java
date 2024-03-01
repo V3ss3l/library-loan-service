@@ -43,6 +43,16 @@ public class LoanController {
         else return new ResponseEntity<>(HttpStatus.NOT_FOUND);
     }
 
+    @SneakyThrows
+    @GetMapping( path = "users/{id}",
+            produces = "application/json"
+    )
+    public ResponseEntity<Loan> getLoanByUserId(@PathVariable Long id) {
+        var result = service.getLoanByUserId(id);
+        if (result != null) return new ResponseEntity<>(result, HttpStatus.OK);
+        else return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+    }
+
     @PostMapping( path = "/",
             consumes = "application/json",
             produces = "application/json"
