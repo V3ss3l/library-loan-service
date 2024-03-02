@@ -30,7 +30,7 @@ public class LoanServiceImpl implements LoanService {
     @Override
     public Loan getLoanByUserId(Long id) throws NotFoundException {
         var result =  repository.getLoanByUserId(id);
-        if (result == null )throw new NotFoundException("Loan by this user |"+id+"| not found in database");
+        if (result == null ) throw new NotFoundException("Loan by this user |"+id+"| not found in database");
         else return result;
     }
     @Override

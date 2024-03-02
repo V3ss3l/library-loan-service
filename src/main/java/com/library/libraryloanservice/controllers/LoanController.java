@@ -14,7 +14,6 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/library/loans")
-@Log4j
 public class LoanController {
     @Autowired
     final LoanService service;
